@@ -1,18 +1,32 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-import CustomButton from './src/components/CustomButton';
+import { StatusBar } from "expo-status-bar";
+import { StyleSheet, Text, View } from "react-native";
+import CustomButton from "./src/components/CustomButton";
+import CustomInput from "./src/components/CustomInput";
+import { useState } from "react";
+
 
 export default function App() {
+  //definicion de una variable de estado en ReactN
+const [inputText, setInputText] = useState("maria");
+
   return (
     <View style={styles.container}>
-      <Text>Bienvenidos a Progra Movil c:!</Text>
+      <Text>Open up App.tsx to start working on your app!</Text>
       <StatusBar style="auto" />
-        <StatusBar style="auto" />
+      
+      <CustomInput 
+      type={"number"} 
+      placeholder={""} 
+      value={inputText} 
+      onChange={setInputText}
+      />
+ 
       <CustomButton
         title={"App"}
         onPress={() => {
           console.log("Press desde boton App");
-        } } variant={'secondary'}      />
+        }}
+      />
        <CustomButton
         title={"Secondary Button"}
         onPress={() => {
@@ -37,5 +51,6 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
+    
   },
 });
